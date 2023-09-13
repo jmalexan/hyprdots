@@ -1,0 +1,179 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 20px;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.modules-right {
+    margin-right: 6px;
+}
+
+.modules-left {
+    margin-left: 6px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+/* Workspaces */
+
+#workspaces button {
+    border-color: gray;
+}
+
+#workspaces button.active {
+    border-color: cyan;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd,
+#workspaces button  {
+    margin: 10px 5px;
+    padding: 5px 10px;
+    color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid white;
+}
+
+#window {
+    font-size: 16px;
+}
+
+#clock {
+    border-color: #64727D;
+}
+
+#battery {
+    border-color: #ffffff;
+}
+
+#battery.charging, #battery.plugged {
+    border-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        border-color: #ffffff;
+    }
+}
+
+#battery.critical:not(.charging) {
+    border-color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    border-color: #2ecc71;
+}
+
+#memory {
+    border-color: #9b59b6;
+}
+
+#disk {
+    border-color: #964B00;
+}
+
+#backlight {
+    border-color: #90b1b1;
+}
+
+#network {
+    border-color: #2980b9;
+}
+
+#network.disconnected {
+    border-color: #f53c3c;
+}
+
+#pulseaudio {
+    border-color: #f1c40f;
+}
+
+#pulseaudio.muted {
+    border-color: #90b1b1;
+}
+
+#temperature {
+    border-color: #f0932b;
+}
+
+#temperature.critical {
+    border-color: #eb4d4b;
+}
+
+#tray {
+    border-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    border-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    border-color: #ecf0f1;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
